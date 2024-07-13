@@ -81,6 +81,7 @@ import sunnyIcon from './assets/sunny.png';
 import rainyIcon from './assets/rainy.png';
 import snowIcon from './assets/snow.png';
 import fogIcon from './assets/fog.png';
+import hazeIcon from './assets/haze.png';
 
 export default {
   data() {
@@ -110,6 +111,8 @@ export default {
           return snowIcon
         case 'Fog':
           return fogIcon
+        case 'Haze':
+          return hazeIcon
       }
     },
     async getWeather() {
@@ -135,7 +138,7 @@ export default {
     formattedDay() {
       if (this.weatherData) {
         const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        const timestamp = this.weatherData.dt * 1000; // Convert to milliseconds
+        const timestamp = this.weatherData.dt * 1000; 
         const dateObject = new Date(timestamp);
         const dayIndex = dateObject.getDay();
         return days[dayIndex];
@@ -144,7 +147,7 @@ export default {
     },
     formattedDate() {
       if (this.weatherData) {
-        const timestamp = this.weatherData.dt * 1000; // Convert to milliseconds
+        const timestamp = this.weatherData.dt * 1000; 
         const dateObject = new Date(timestamp);
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         return dateObject.toLocaleDateString('en-US', options);
